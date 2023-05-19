@@ -4,6 +4,7 @@ import { ForbiddenError } from "../errors/forbidden-error";
 import { NotFoundError } from "../errors/not-found-error";
 import { PathParamsError } from "../errors/path-params-error";
 import { QueryParamsError } from "../errors/query-params-error";
+import { UnauthorizedError } from "../errors/unauthorized-error";
 import { ValidationError } from "../errors/validation-error";
 
 export function handleError(e: any) {
@@ -19,6 +20,13 @@ export function handleError(e: any) {
       statusCode: 400,
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ error: { ...e, message: e.message } }),
+    };
+  }
+
+  // 401
+  if (e instanceof UnauthorizedError) {
+    return {
+      statusCode: 401,
     };
   }
 

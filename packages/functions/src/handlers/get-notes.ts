@@ -2,7 +2,7 @@ import { noteSchema } from "@clean-lambda/core/model/note";
 import { notes } from "src/data";
 import { headers } from "src/utils/headers";
 import lambdaHandler from "src/utils/global-handlers/lambda-handler";
-import { parseQueryParams } from "src/utils/global-handlers/parse-query-params";
+import { parseQueryParams } from "src/utils/parsers/parse-query-params";
 import { z } from "zod";
 
 const queryParamsSchema = noteSchema.partial();

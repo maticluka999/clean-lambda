@@ -1,5 +1,5 @@
 import { Schema, ZodError } from "zod";
-import { PathParamsError } from "./errors/path-params-error";
+import { PathParamsError } from "../errors/path-params-error";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 
 export function parsePathParams(event: APIGatewayProxyEventV2, schema: Schema) {

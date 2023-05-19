@@ -6,6 +6,7 @@ import { PathParamsError } from "../errors/path-params-error";
 import { QueryParamsError } from "../errors/query-params-error";
 import { UnauthorizedError } from "../errors/unauthorized-error";
 import { ValidationError } from "../errors/validation-error";
+import { headers } from "../headers";
 
 export function handleError(e: any) {
   // 400
@@ -18,7 +19,7 @@ export function handleError(e: any) {
   ) {
     return {
       statusCode: 400,
-      headers: { "content-type": "application/json" },
+      headers: { ...headers.CONTENT_TYPE_APPLICATION_JSON },
       body: JSON.stringify({ error: { ...e, message: e.message } }),
     };
   }
@@ -34,7 +35,7 @@ export function handleError(e: any) {
   if (e instanceof ForbiddenError) {
     return {
       statusCode: 403,
-      headers: { "content-type": "application/json" },
+      headers: { ...headers.CONTENT_TYPE_APPLICATION_JSON },
       body: JSON.stringify({ error: { message: e.message } }),
     };
   }
@@ -43,7 +44,7 @@ export function handleError(e: any) {
   if (e instanceof NotFoundError) {
     return {
       statusCode: 404,
-      headers: { "content-type": "application/json" },
+      headers: { ...headers.CONTENT_TYPE_APPLICATION_JSON },
       body: JSON.stringify({ error: { message: e.message } }),
     };
   }
@@ -53,6 +54,7 @@ export function handleError(e: any) {
 
   return {
     statusCode: 500,
+    headers: { ...headers.CONTENT_TYPE_APPLICATION_JSON },
     body: JSON.stringify({ message: "Internal Server Error" }),
   };
 }

@@ -1,12 +1,12 @@
-import { BodyMissingError } from "../errors/body-missing-error";
-import { BodyNotJsonError } from "../errors/body-not-json-error";
-import { ForbiddenError } from "../errors/forbidden-error";
-import { NotFoundError } from "../errors/not-found-error";
-import { PathParamsError } from "../errors/path-params-error";
-import { QueryParamsError } from "../errors/query-params-error";
-import { UnauthorizedError } from "../errors/unauthorized-error";
-import { ValidationError } from "../errors/validation-error";
-import { headers } from "../headers";
+import { BodyMissingError } from '../errors/body-missing-error';
+import { BodyNotJsonError } from '../errors/body-not-json-error';
+import { ForbiddenError } from '../errors/forbidden-error';
+import { NotFoundError } from '../errors/not-found-error';
+import { PathParamsError } from '../errors/path-params-error';
+import { QueryParamsError } from '../errors/query-params-error';
+import { UnauthorizedError } from '../errors/unauthorized-error';
+import { ValidationError } from '../errors/validation-error';
+import { headers } from '../headers';
 
 export function handleError(e: any) {
   // 400
@@ -55,6 +55,6 @@ export function handleError(e: any) {
   return {
     statusCode: 500,
     headers: { ...headers.CONTENT_TYPE_APPLICATION_JSON },
-    body: JSON.stringify({ message: "Internal Server Error" }),
+    body: JSON.stringify({ message: 'Internal Server Error' }),
   };
 }

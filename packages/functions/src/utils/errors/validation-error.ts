@@ -1,8 +1,8 @@
-import { ZodIssue } from "zod";
+import { ZodIssue } from 'zod';
 
 export class ValidationError extends Error {
   constructor(message: string, private issues?: ZodIssue[]) {
     super(message);
-    this.name = "ValidationError";
+    this.name = 'ValidationError';
   }
 }

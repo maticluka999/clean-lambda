@@ -1,6 +1,6 @@
-import { Schema, ZodError } from "zod";
-import { APIGatewayProxyEventV2 } from "aws-lambda";
-import { QueryParamsError } from "../errors/query-params-error";
+import { Schema, ZodError } from 'zod';
+import { APIGatewayProxyEventV2 } from 'aws-lambda';
+import { QueryParamsError } from '../errors/query-params-error';
 
 export function parseQueryParams(
   event: APIGatewayProxyEventV2,
@@ -15,7 +15,7 @@ export function parseQueryParams(
     return parsed;
   } catch (e) {
     if (e instanceof ZodError) {
-      throw new QueryParamsError("Invalid query params", e.issues);
+      throw new QueryParamsError('Invalid query params', e.issues);
     }
   }
 }

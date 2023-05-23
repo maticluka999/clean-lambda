@@ -1,8 +1,8 @@
-import { noteSchema } from "@clean-lambda/core/model/note";
-import { notes } from "src/data";
-import { NotFoundError } from "src/utils/errors/not-found-error";
-import lambdaHandler from "src/utils/global-handlers/lambda-handler";
-import { parsePathParams } from "src/utils/parsers/parse-path-params";
+import { noteSchema } from '@clean-lambda/core/model/note';
+import { notes } from 'src/data';
+import { NotFoundError } from 'src/utils/errors/not-found-error';
+import lambdaHandler from 'src/utils/global-handlers/lambda-handler';
+import { parsePathParams } from 'src/utils/parsers/parse-path-params';
 
 const pathParamsSchema = noteSchema.pick({ id: true });
 

@@ -3,8 +3,8 @@ import {
   APIGatewayProxyHandlerV2,
   APIGatewayProxyStructuredResultV2,
   Context,
-} from "aws-lambda";
-import { handleError } from "./error-handler";
+} from 'aws-lambda';
+import { handleError } from './error-handler';
 
 /**
  * Custom lambda wrapper
